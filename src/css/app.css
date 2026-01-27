@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: night_aura;
+}
+
+@theme {
+  /* Fokus pada warna Elegant Dark */
+  --color-surface: #030712;
+  --color-surface-darker: #010409;
+  --color-primary: #6366f1;
+  --color-secondary: #a855f7;
+  --color-accent: #2dd4bf;
+  
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui;
+
+  /* Shadow Neon - Dibuat lebih kuat agar mencolok */
+  --shadow-neon: 0 20px 50px -12px rgba(99, 102, 241, 0.25);
+  --shadow-neon-hover: 0 0 60px -10px rgba(99, 102, 241, 0.5), 0 0 20px -5px rgba(168, 85, 247, 0.3);
+
+  /* Re-sinkronisasi radius agar mengikuti standar baru */
+  --radius-lg: 1.5rem;
+  --radius-md: 1rem;
+  --radius-sm: 0.5rem;
+}
+
+/* Base Style untuk Border v4 Compatibility */
+@layer base {
+  /* *, ::after, ::before {
+    border-color: var(--color-white-10, rgba(255,255,255,0.05));
+  } */
+  body {
+    background-color: #030712;
+    color: #f8fafc;
+  }
+}
+
+/* Background Texture */
+.bg-grainy {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3e%3cfilter id='noiseFilter'%3e%3ctfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3e%3c/filter%3e%3crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3e%3c/svg%3e");
+  opacity: 0.03;
+}
+
+/* DaisyUI Theme Override */
+[data-theme="night_aura"] {
+  --color-base-100: #030712;
+  --color-base-200: #0f172a;
+  --color-base-content: #f8fafc;
+  --color-primary-content: #ffffff;
+}
+
+/* Efek Animasi Melayang */
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.floating-card {
+  animation: floating 8s ease-in-out infinite;
+}
+
+/* Transisi Global */
+* {
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hapus bagian :root dan .dark yang menggunakan HSL jika Anda tidak menggunakannya, 
+   agar tidak terjadi konflik warna dengan night_aura */
