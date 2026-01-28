@@ -9,8 +9,8 @@
       <div class="flex-1">
         <span class="text-lg font-bold tracking-widest uppercase text-white">
           <!-- {{ profile.full_name }} -->
-            Zammer
-          <span class="text-primary">.</span>
+            ProZamer
+          <span class="text-primary font-bold">.</span>
         </span>
       </div>
       <div class="flex-none">
@@ -24,9 +24,9 @@
     <footer class="footer footer-center p-10 bg-base-200 text-slate-400 border-t border-white/5">
       <aside>
         <p class="font-bold uppercase tracking-widest text-xs">Based in Indonesia</p> 
-        <p>Copyright © 2024 - 
+        <p>Copyright © 2026 - 
             <!-- {{ profile.full_name }} -->
-              Azzam
+              Abdullah Azzam Adnan
         </p>
       </aside>
     </footer>
