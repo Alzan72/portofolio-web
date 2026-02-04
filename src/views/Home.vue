@@ -325,7 +325,7 @@ const projects = [
           >
             <span class="flex h-2 w-2 animate-pulse rounded-full bg-accent"></span>
             <span class="text-[10px] font-black tracking-[0.3em] text-slate-300 uppercase"
-              >Available for Project</span
+              >Ready for Project</span
             >
           </div>
           <div class="container mx-auto max-w-5xl">
