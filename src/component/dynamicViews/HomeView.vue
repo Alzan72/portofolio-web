@@ -36,20 +36,10 @@ const brands = ref([
     <!-- ==================================================== -->
     <section class="flex flex-col gap-3">
       <h2 class="text-3xl font-black tracking-wide text-vintage-teal">
-        Hallo, Programmer here 👋
+        Hallo, Azzam here 👋
       </h2>
       
-      <div class="text-sm md:text-base leading-relaxed text-gray-700 space-y-2">
-        <p>Saya adalah seorang full-stack developer yang berfokus pada penyediaan solusi digital praktis untuk UMKM, perusahaan, hingga institusi pendidikan.</p>
-        <p>Dengan pendekatan yang santai namun terstruktur, saya menerjemahkan kebutuhan bisnis Anda ke dalam baris kode yang efisien, cepat, dan mudah dikelola.</p>
-        <p>Saya percaya bahwa teknologi hebat tidak harus terasa rumit bagi pengguna akhir.</p>
-        
-        <!-- Baris tambahan yang disembunyikan / ditampilkan secara dinamis -->
-        <div v-if="isExpanded" class="space-y-2 pt-2 border-t border-vintage-dark/5">
-          <p>Mulai dari pembuatan landing page kreatif untuk produk lokal, sistem informasi pendaftaran sekolah terintegrasi, hingga dashboard internal korporat untuk monitoring performa tim.</p>
-          <p>Setiap proyek dikerjakan dengan standar tech stack modern berbasis Vue.js dan arsitektur backend yang kokoh, memastikan aplikasi Anda siap berkembang kapan saja.</p>
-        </div>
-      </div>
+      <div class="text-sm md:text-base leading-relaxed text-gray-700 space-y-2"> <p>Profesional IT dengan fokus pada jaringan komputer dan pengembangan perangkat lunak. Berpengalaman mengubah kebutuhan operasional menjadi solusi digital yang efisien, andal, dan mudah digunakan.</p> <p>Telah merancang dan mengembangkan berbagai sistem terintegrasi lintas divisi, mulai dari aplikasi manajemen internal yang meningkatkan produktivitas kerja hingga platform rekapitulasi laporan otomatis. Di bidang pendidikan, saya juga membangun solusi seperti sistem absensi berbasis QR Code dan aplikasi penilaian siswa yang terstruktur.</p> <p v-if="!isExpanded">Berpengalaman mengembangkan sistem baru maupun mengoptimalkan aplikasi yang sudah berjalan...</p> <!-- Baris tambahan yang disembunyikan / ditampilkan secara dinamis --> <div v-if="isExpanded" class="space-y-2 pt-2 border-t border-vintage-dark/5"> <p>Selain mengembangkan sistem dari nol, saya juga berpengalaman melakukan optimalisasi dan refaktorisasi aplikasi legacy untuk meningkatkan performa, efisiensi, dan pengalaman pengguna.</p> <p>Dalam bidang jaringan, saya memiliki pengalaman melakukan instalasi dan konfigurasi infrastruktur jaringan sekolah menggunakan perangkat MikroTik, termasuk pengelolaan akses internet berdasarkan tingkat pengguna serta penerapan kebijakan pemblokiran situs sesuai kebutuhan.</p> <p>Saya selalu terbuka terhadap tantangan baru dan siap membantu proses digitalisasi melalui implementasi teknologi yang tepat, efektif, dan berkelanjutan.</p> </div> </div>
 
       <!-- Tombol Show More / Show Less -->
       <button 
