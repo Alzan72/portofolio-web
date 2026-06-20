@@ -96,7 +96,7 @@ defineEmits(['change-menu'])
   <!-- Baris Atas: Ikon Sosmed Inline -->
   <div class="flex items-center gap-2">
     <a 
-      href="https://wa.me/yournumber" 
+      href="https://wa.me/6283153564301" 
       target="_blank" 
       class="btn btn-circle btn-sm bg-emerald-600 hover:bg-emerald-700 text-white border-none min-h-8 w-8"
       title="Hubungi via WhatsApp"
@@ -105,7 +105,7 @@ defineEmits(['change-menu'])
     </a>
     
     <a 
-      href="https://github.com/yourusername" 
+      href="https://github.com/Alzan72" 
       target="_blank" 
       class="btn btn-circle btn-sm bg-gray-700 hover:bg-gray-800 text-white border-none min-h-8 w-8"
       title="Lihat GitHub"
@@ -113,7 +113,7 @@ defineEmits(['change-menu'])
       <Icon icon="mdi:github" class="w-4 h-4" />
     </a>
     <a 
-      href="https://instagram.com/yourusername" 
+      href="https://instagram.com/azzm_adn" 
       target="_blank" 
       class="btn btn-circle btn-sm bg-gray-700 hover:bg-gray-800 text-white border-none min-h-8 w-8"
       title="Lihat Instagram"
@@ -121,7 +121,7 @@ defineEmits(['change-menu'])
       <Icon icon="mdi:instagram" class="w-4 h-4" />
     </a>
     <a 
-      href="https://tiktok.com/yourusername" 
+      href="https://tiktok.com/@prozammer" 
       target="_blank" 
       class="btn btn-circle btn-sm bg-gray-700 hover:bg-gray-800 text-white border-none min-h-8 w-8"
       title="Lihat Tiktok"
@@ -129,7 +129,7 @@ defineEmits(['change-menu'])
       <Icon icon="line-md:tiktok" class="w-4 h-4" />
     </a>
     <a 
-      href="mailto:[EMAIL_ADDRESS]" 
+      href="mailto:abdulazzam66@gmail.com" 
       target="_blank" 
       class="btn btn-circle btn-sm bg-gray-700 hover:bg-gray-800 text-white border-none min-h-8 w-8"
       title="Email"

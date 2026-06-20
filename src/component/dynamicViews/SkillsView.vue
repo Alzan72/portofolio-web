@@ -6,51 +6,51 @@ import { Icon } from '@iconify/vue'
 const experienceTimeline = ref([
   {
     type: 'work',
-    year: '2025 - Sekarang',
+    year: '2023 - Sekarang',
     title: 'Full-Stack Web Developer',
-    place: 'Freelance / Remote',
-    desc: 'Membantu digitalisasi UMKM dan sekolah lokal. Membangun sistem pendaftaran online (PPDB) menggunakan Laravel, Vue.js, dan Docker.'
-  },
-  {
-    type: 'work',
-    year: '2024',
-    title: 'Junior Developer',
-    place: 'Jakarta',
-    desc: 'Bekerja dalam tim untuk mengembangkan dan melakukan maintenance aplikasi berbasis web serta optimasi database operasional perusahaan.'
+    place: 'Malang',
+    desc: 'Membantu digitalisasi sekolah IIBS dengan mengembangkan sistem informasi yang terintegrasi, modern, interaktif, cepat, dan responsif. '
   },
   {
     type: 'edu',
-    year: '2021 - 2024',
+    year: '2022 - 2023',
+    title: 'Pemograman tingkat lanjut',
+    place: 'Solo',
+    desc: 'Mendalami pemograman tingkat lanjut seperti OOP, MVC, dan design pattern, serta membangun aplikasi berbasis web yang modern, interaktif, cepat, dan responsif.'
+  },
+  {
+    type: 'edu',
+    year: '2019 - 2022',
     title: 'Teknik Komputer & Jaringan / Rekayasa Perangkat Lunak',
-    place: 'Pendidikan Formal / Otodidak',
-    desc: 'Mempelajari fondasi dasar jaringan, algoritma pemrograman, hingga fokus mendalami ekosistem modern PHP dan JavaScript.'
+    place: 'Pendidikan Formal',
+    desc: 'Mempelajari fondasi dasar jaringan, algoritma pemrograman, hingga mulai mendalami ekosistem modern PHP dan JavaScript.'
   }
 ])
 
 // Data Persentase Skill (Dikategorikan agar Solutif)
 const skillCategories = ref([
   {
-    category: 'Backend & Core Logic',
+    category: 'Web App Development',
     items: [
-      { name: 'PHP / Laravel', percentage: 85, color: 'progress-primary' },
-      { name: 'MySQL / Database Architecture', percentage: 80, color: 'progress-primary' },
-      { name: 'Node.js / REST API', percentage: 70, color: 'progress-primary' }
+      { name: 'PHP / Laravel', percentage: 90, color: 'progress-primary' },
+      { name: 'MySQL / Database Architecture', percentage: 85, color: 'progress-primary' },
+      { name: 'Node.js / REST API', percentage: 80, color: 'progress-primary' }
     ]
   },
   {
-    category: 'Frontend & UI/UX',
+    category: 'Web Design',
     items: [
-      { name: 'Vue.js 3 (Composition API)', percentage: 80, color: 'progress-secondary' },
-      { name: 'Tailwind CSS / DaisyUI', percentage: 90, color: 'progress-secondary' },
-      { name: 'Responsive UI Design', percentage: 85, color: 'progress-secondary' }
+      { name: 'Vue.js 3 (Composition API)', percentage: 90, color: 'progress-secondary' },
+      { name: 'Tailwind CSS', percentage: 80, color: 'progress-secondary' },
+      // { name: 'Responsive UI Design', percentage: 85, color: 'progress-secondary' }
     ]
   },
   {
-    category: 'DevOps & Tools',
+    category: 'Networking',
     items: [
-      { name: 'Docker / Containerization', percentage: 75, color: 'progress-accent' },
-      { name: 'Git & GitHub Collaboration', percentage: 85, color: 'progress-accent' },
-      { name: 'Laragon / Local Environments', percentage: 90, color: 'progress-accent' }
+      { name: 'MikroTik', percentage: 90, color: 'progress-accent' },
+      // { name: 'Network Security & Policy', percentage: 85, color: 'progress-accent' },
+      { name: 'Network Troubleshooting', percentage: 80, color: 'progress-accent' }
     ]
   }
 ])
