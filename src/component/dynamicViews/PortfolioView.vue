@@ -16,62 +16,95 @@ const currentSlide = ref(0)
 const projects = ref([
     {
         id: 1,
-        title: 'Sistem Informasi PPDB Ar-Rohmah Group',
+        title: 'Sistem Pendaftaran Santri Baru Ar-Rohmah Group',
         category: 'pendidikan',
-        tech: ['laravel', 'vue', 'sql'],
-        desc: 'Sistem pendaftaran santri baru terintegrasi dengan pembagian role-based redirect untuk Tim PSB, Ustadz, dan Wali Santri. Mampu menghitung kalkulasi nilai semester otomatis dan pelaporan terpusat.',
+        tech: ['laravel', 'vue', 'sql', 'bootstrap'],
+        desc: 'Sistem pendaftaran santri baru terintegrasi dengan pembagian role-based redirect untuk Tim PSB, Ustadz, dan Wali Santri. Mampu menghitung pencapaian target pendaftaran, rekapan pekerjaan wali santri, dan pelaporan terpusat.',
         images: [
-            'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800',
-            'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800'
+            '/img/projects/psb_1.png',
+            '/img/projects/psb_2.png',
+            '/img/projects/psb_3.png',
+            '/img/projects/psb_4.png',
+            '/img/projects/psb_5.png',
         ],
-        video: 'https://www.w3schools.com/html/mov_bbb.mp4' // Contoh fake video link
+        video: null // Contoh fake video link
     },
     {
         id: 2,
-        title: 'E-Commerce Marketplace Warung Kopi Kita',
-        category: 'umkm',
-        tech: ['vue', 'sql', 'tailwind'],
-        desc: 'Aplikasi toko online kasual yang dioptimasi untuk performa cepat di HP. Memiliki fitur manajemen stok terpusat, integrasi payment gateway, dan kalkulasi ongkir otomatis untuk membantu UMKM lokal naik kelas.',
+        title: 'Pengembangan Aplikasi SDM Ar-Rohmah Group',
+        category: 'pendidikan',
+        tech: ['laravel', 'sql', 'vue', 'tailwind'],
+        desc: 'Aplikasi SDM berbasis web yang modern, interaktif, mudah digunakan, dan responsif. Mendukung keperluan operasional kepegawaian seperti absensi kegiatan, rekapitulasi data pegawai, pengajuan formulir kepegawaian (seperti cuti, keluar dll), dan penilaian kinerja.',
         images: [
-            'https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=800',
-            'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800'
+            '/img/projects/sdm_1.png',
+            '/img/projects/sdm_2.png',
+            '/img/projects/sdm_3.png',
+            '/img/projects/sdm_4.png',
+            '/img/projects/sdm_5.png',
         ],
         video: null // Tidak ada video
     },
     {
         id: 3,
-        title: 'Company Profile & Dashboard PT Karya Solusi',
-        category: 'perusahaan',
-        tech: ['laravel', 'sql'],
-        desc: 'Website company profile dengan sistem dashboard admin internal untuk mengelola KPI pegawai, log aktivitas harian, serta otomasi pembuatan laporan bulanan yang aman dan efisien.',
+        title: 'Aplikasi absensi ekstrakurikuler siswa',
+        category: 'pendidikan',
+        tech: ['laravel', 'sql', 'vue', 'tailwind'],
+        desc: 'Aplikasi absensi ekstrakurikuler siswa berbasis web yang modern, mudah digunakan dan responsif. Mendukung rekapitulasi data siswa dan rekap kehadiran siswa dalam mengikuti kegiatan ekstrakurikuler.',
         images: [
-            'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=800',
-            'https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800'
+            '/img/projects/absensi_1.png',
+            '/img/projects/absensi_2.png',
+            '/img/projects/absensi_3.png',
         ],
-        video: 'https://www.w3schools.com/html/movie.mp4'
+        video: null
     },
     {
         id: 4,
-        title: 'Sistem Absensi Siswa Berbasis Docker (Presensi-Siswa)',
-        category: 'pendidikan',
-        tech: ['laravel', 'docker', 'sql'],
-        desc: 'Aplikasi absensi real-time sekolah yang dicontainerisasi penuh menggunakan Docker Compose. Mendukung otomasi rekap kehadiran bulanan guru dan integrasi hardware native.',
+        title: 'Aplikasi Kehadiran Acara Berbasis QR Code',
+        category: 'umum',
+        tech: ['laravel', 'sql', 'vue', 'tailwind'],
+        desc: 'Aplikasi absensi berbasis web yang modern, mudah digunakan dan responsif. Sistem absensi yang menggunakan scan QR Code dalam proses presensi, pencatatan nomor kursi secara otomatis dan rekapitulasi data kehadiran tamu dalam mengikuti kegiatan. Cocok untuk segala acara , terutama kegiatan wisuda sekolah, karena bisa merekapitulasi anggota keluarga yang hadir seperti ayah dan ibu (jika acara mengizinkan anggota keluarga).',
         images: [
-            'https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=800'
+            '/img/projects/presensi_qr_1.png',
+            '/img/projects/presensi_qr_2.png',
+            '/img/projects/presensi_qr_3.png',
+            '/img/projects/presensi_qr_4.png',
+            '/img/projects/presensi_qr_5.png',
+            '/img/projects/presensi_qr_6.png',
+            '/img/projects/presensi_qr_7.png',
         ],
         video: null
     },
     {
         id: 5,
-        title: 'LaundryExpress Web App (Laundryapp.test)',
-        category: 'umkm',
-        tech: ['laravel', 'vue', 'sql'],
-        desc: 'Aplikasi kasir dan pelacakan status cucian berbasis web untuk UMKM laundry. Dilengkapi dengan integrasi Google Socialite OAuth untuk login instan pelanggan dan dashboard keuangan berkala.',
+        title: 'Pengembangan Aplikasi SIPTA',
+        category: 'pendidikan',
+        tech: ['laravel', 'vue', 'sql', 'tailwind'],
+        desc: 'Aplikasi yang dikembangkan untuk pendidika, terutama pondok pesantren. Dengan bebagai macam fitur seperti rekapan data santri, penilaian siswa, penilaian guru, kehadiran guru, cetak rapot dan lain sebagainya. Aplikasi kemudian dikembangkan lebih lanjut untuk memenuhi kebutuhan operasional pondok pesantren, yaitu fitur penilaian santri di asrama, rapot asrama dan pencatatan pengiriman paket dari orang tua ke santri.',
         images: [
-            'https://images.unsplash.com/photo-1545173168-9f18c82b997e?q=80&w=800'
+            '/img/projects/sipta_1.png',
+            '/img/projects/sipta_2.png',
+            '/img/projects/sipta_3.png',
+            '/img/projects/sipta_4.png',
+            '/img/projects/sipta_5.png',
+            '/img/projects/sipta_6.png',
+            '/img/projects/sipta_7.png',
         ],
         video: null
-    }
+    },
+    {
+        id: 6,
+        title: 'Aplikasi keuangan masjid',
+        category: 'keuangan',
+        tech: ['laravel', 'vue', 'sql', 'tailwind'],
+        desc: 'Aplikasi keuangan masjid berbasis web yang modern, mudah digunakan dan responsif. Mendukung rekapitulasi data keuangan masjid, pencatatan kas masuk dan keluar, serta fitur input transaksi berbasis scan foto tanpa ribet mengetik satu per satu item',
+        images: [
+            '/img/projects/masjid_1.png',
+            '/img/projects/masjid_2.png',
+            '/img/projects/masjid_3.png',
+            '/img/projects/masjid_4.png',
+        ],
+        video: null
+    },
 ])
 
 // Komputasi filter data proyek secara dinamis
@@ -113,8 +146,8 @@ const openDetail = (project) => {
                     class="select select-sm select-bordered bg-vintage-bg-darker border-vintage-dark/10 focus:outline-vintage-teal text-xs font-semibold rounded-lg w-full">
                     <option value="all">Semua Kategori</option>
                     <option value="pendidikan">Pendidikan / Sekolah</option>
-                    <option value="umkm">UMKM / Usaha Lokal</option>
-                    <option value="perusahaan">Perusahaan / Corporate</option>
+                    <option value="umum">Umum</option>
+                    <option value="keuangan">Keuangan</option>
                 </select>
             </div>
 
@@ -127,7 +160,7 @@ const openDetail = (project) => {
                     <option value="laravel">Laravel PHP</option>
                     <option value="vue">Vue.js 3</option>
                     <option value="sql">MySQL / SQL</option>
-                    <option value="docker">Docker DevOps</option>
+                    <!-- <option value="docker">Docker DevOps</option> -->
                 </select>
             </div>
         </div>

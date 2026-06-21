@@ -8,7 +8,7 @@ const isExpanded = ref(false)
 // Data Dummy Skills (Cocok untuk target Sekolah, UMKM, & Corporate)
 const skills = ref([
   { icon: 'tdesign:web', title: 'Web Design', desc: 'Mendesain website atau landing page yang modern, interaktif, cepat, dan responsif untuk UMKM, Sekolah, dan Corporate.' },
-  { icon: 'tdesign:app', title: 'Web Apps Development', desc: 'Membangun aplikasi berbasis web yang modern, interaktif, cepat, dan responsif seperti aplikasi absensi siswa, aplikasi penilaian siswa, aplikasi inventory UMKM, dan aplikasi keuangan Corporate.' },
+  { icon: 'tdesign:app', title: 'Web Apps Development', desc: 'Membangun aplikasi berbasis web yang modern, interaktif, cepat, dan responsif seperti aplikasi absensi siswa, aplikasi penilaian siswa, aplikasi inventory UMKM dan aplikasi keuangan Corporate.' },
   { icon: 'lucide:network', title: 'Networking', desc: 'Instalasi dan konfigurasi infrastruktur jaringan sekolah menggunakan perangkat MikroTik, termasuk pengelolaan akses internet berdasarkan tingkat pengguna serta penerapan kebijakan pemblokiran situs sesuai kebutuhan.' },
 ])
 
