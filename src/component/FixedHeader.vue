@@ -13,9 +13,9 @@ defineEmits(['change-menu'])
     class="card w-full max-w-4xl bg-vintage-dark text-neutral-content shadow-xl border border-vintage-dark/20 sticky top-4 z-50">
     <div class="card-body p-3 md:p-6">
 
-      <div class="grid grid-cols-10 gap-2 md:hidden w-full items-stretch">
+      <div class="grid grid-cols-10 gap-1 md:hidden w-full items-stretch">
 
-        <div class="col-span-3 flex flex-col justify-between border-r border-gray-700/50 pr-2">
+        <div class="col-span-4 flex flex-col justify-between border-r border-gray-700/50 pr-2">
           <div class="h-[60px] flex items-center justify-center">
             <div class="avatar online">
               <div class="w-12 h-12 rounded-full ring ring-vintage-teal ring-offset-base-100 ring-offset-2">
@@ -25,23 +25,23 @@ defineEmits(['change-menu'])
           </div>
 
           <div class="h-[20px] flex items-center justify-center">
-            <a href="https://wa.me/yournumber" target="_blank"
+            <a href="https://wa.me/6283153564301" target="_blank"
               class="flex items-center gap-1 mx-1 text-[11px] text-emerald-400 font-semibold active:scale-95 transition-transform">
               <Icon icon="mdi:whatsapp" class="w-4 h-4" />
             </a>
-            <a href="https://wa.me/yournumber" target="_blank"
+            <a href="https://github.com/Alzan72" target="_blank"
               class="flex items-center gap-1 mx-1 text-[11px] text-emerald-400 font-semibold active:scale-95 transition-transform">
               <Icon icon="mdi:github" class="w-4 h-4" />
             </a>
-            <a href="https://wa.me/yournumber" target="_blank"
+            <a href="https://www.instagram.com/azzm_adn/" target="_blank"
               class="flex items-center gap-1 mx-1 text-[11px] text-emerald-400 font-semibold active:scale-95 transition-transform">
               <Icon icon="mdi:instagram" class="w-4 h-4" />
             </a>
-            <a href="https://wa.me/yournumber" target="_blank"
+            <a href="https://tiktok.com/@prozammer" target="_blank"
               class="flex items-center gap-1 mx-1 text-[11px] text-emerald-400 font-semibold active:scale-95 transition-transform">
               <Icon icon="line-md:tiktok" class="w-4 h-4" />
             </a>
-            <a href="https://wa.me/yournumber" target="_blank"
+            <a href="mailto:abdulazzam66@gmail.com" target="_blank"
               class="flex items-center gap-1 mx-1 text-[11px] text-emerald-400 font-semibold active:scale-95 transition-transform">
               <Icon icon="mdi:email" class="w-4 h-4" />
             </a>
@@ -54,7 +54,7 @@ defineEmits(['change-menu'])
           </div>
         </div>
 
-        <div class="col-span-7 flex flex-col justify-between pl-1">
+        <div class="col-span-6 flex flex-col justify-between pl-1">
           <div class="h-[60px] flex flex-col justify-center">
             <h1 class="text-lg font-black tracking-wider text-vintage-cream leading-tight">Azzam Adnan</h1>
             <p class="text-[10px] text-gray-400 font-medium tracking-wide h-[10px]">IT Enthusiast</p>
