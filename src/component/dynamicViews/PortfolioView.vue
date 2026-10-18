@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { Icon } from '@iconify/vue'
+import { useLangStore } from '@/stores/lang'
 
 // State untuk Filtering
 const selectedCategory = ref('all')
@@ -20,6 +21,8 @@ const projects = ref([
         category: 'pendidikan',
         tech: ['laravel', 'vue', 'sql', 'bootstrap'],
         desc: 'Sistem pendaftaran santri baru terintegrasi dengan pembagian role-based redirect untuk Tim PSB, Ustadz, dan Wali Santri. Mampu menghitung pencapaian target pendaftaran, rekapan pekerjaan wali santri, dan pelaporan terpusat.',
+        descEn:
+          'Integrated new student registration system with role-based redirects for the admission team, teachers, and parents, including target tracking, guardian activity recap, and centralized reporting.',
         images: [
             '/img/projects/psb_1.png',
             '/img/projects/psb_2.png',
@@ -35,6 +38,8 @@ const projects = ref([
         category: 'pendidikan',
         tech: ['laravel', 'sql', 'vue', 'tailwind'],
         desc: 'Aplikasi SDM berbasis web yang modern, interaktif, mudah digunakan, dan responsif. Mendukung keperluan operasional kepegawaian seperti absensi kegiatan, rekapitulasi data pegawai, pengajuan formulir kepegawaian (seperti cuti, keluar dll), dan penilaian kinerja.',
+        descEn:
+          'Modern and responsive HR web application to handle staff attendance, staff data recap, HR forms (leave, exit, etc.), and performance evaluation.',
         images: [
             '/img/projects/sdm_1.png',
             '/img/projects/sdm_2.png',
@@ -50,6 +55,8 @@ const projects = ref([
         category: 'pendidikan',
         tech: ['laravel', 'sql', 'vue', 'tailwind'],
         desc: 'Aplikasi absensi ekstrakurikuler siswa berbasis web yang modern, mudah digunakan dan responsif. Mendukung rekapitulasi data siswa dan rekap kehadiran siswa dalam mengikuti kegiatan ekstrakurikuler.',
+        descEn:
+          'Web-based extracurricular attendance application that is modern, easy to use, and responsive, supporting student data recap and attendance across extracurricular activities.',
         images: [
             '/img/projects/absensi_1.png',
             '/img/projects/absensi_2.png',
@@ -63,6 +70,8 @@ const projects = ref([
         category: 'umum',
         tech: ['laravel', 'sql', 'vue', 'tailwind'],
         desc: 'Aplikasi absensi berbasis web yang modern, mudah digunakan dan responsif. Sistem absensi yang menggunakan scan QR Code dalam proses presensi, pencatatan nomor kursi secara otomatis dan rekapitulasi data kehadiran tamu dalam mengikuti kegiatan. Cocok untuk segala acara , terutama kegiatan wisuda sekolah, karena bisa merekapitulasi anggota keluarga yang hadir seperti ayah dan ibu (jika acara mengizinkan anggota keluarga).',
+        descEn:
+          'Modern, responsive web attendance system that uses QR-code scanning for check-in, automatic seat numbering, and guest attendance recap. Suitable for many events, especially school graduations, and can track attending family members such as parents.',
         images: [
             '/img/projects/presensi_qr_1.png',
             '/img/projects/presensi_qr_2.png',
@@ -80,6 +89,8 @@ const projects = ref([
         category: 'pendidikan',
         tech: ['laravel', 'vue', 'sql', 'tailwind'],
         desc: 'Aplikasi yang dikembangkan untuk pendidika, terutama pondok pesantren. Dengan bebagai macam fitur seperti rekapan data santri, penilaian siswa, penilaian guru, kehadiran guru, cetak rapot dan lain sebagainya. Aplikasi kemudian dikembangkan lebih lanjut untuk memenuhi kebutuhan operasional pondok pesantren, yaitu fitur penilaian santri di asrama, rapot asrama dan pencatatan pengiriman paket dari orang tua ke santri.',
+        descEn:
+          'Application developed for education, especially Islamic boarding schools, with features such as student data recap, student grading, teacher evaluation, teacher presence tracking, report cards, and more. It is further extended with dormitory assessments, dormitory report cards, and package delivery tracking from parents to students.',
         images: [
             '/img/projects/sipta_1.png',
             '/img/projects/sipta_2.png',
@@ -97,6 +108,8 @@ const projects = ref([
         category: 'keuangan',
         tech: ['laravel', 'vue', 'sql', 'tailwind'],
         desc: 'Aplikasi keuangan masjid berbasis web yang modern, mudah digunakan dan responsif. Mendukung rekapitulasi data keuangan masjid, pencatatan kas masuk dan keluar, serta fitur input transaksi berbasis scan foto tanpa ribet mengetik satu per satu item',
+        descEn:
+          'Modern, responsive web-based mosque finance application that supports cash-in and cash-out tracking, financial recaps, and photo-based transaction input without manually typing each item.',
         images: [
             '/img/projects/masjid_1.png',
             '/img/projects/masjid_2.png',
@@ -116,6 +129,9 @@ const filteredProjects = computed(() => {
     })
 })
 
+const langStore = useLangStore()
+const isEnglish = computed(() => langStore.current === 'en')
+
 // Fungsi membuka modal detail
 const openDetail = (project) => {
     selectedProject.value = project
@@ -130,8 +146,12 @@ const openDetail = (project) => {
 
         <!-- HEADER SECTION -->
         <div class="flex flex-col">
-            <h3 class="text-lg font-bold uppercase tracking-wider text-gray-500 text-[11px]">Creative Showcase</h3>
-            <p class="text-xl font-black text-vintage-teal">Portofolio & Studi Kasus</p>
+            <h3 class="text-lg font-bold uppercase tracking-wider text-gray-500 text-[11px]">
+              {{ isEnglish ? 'Creative Showcase' : 'Portofolio Kreatif' }}
+            </h3>
+            <p class="text-xl font-black text-vintage-teal">
+              {{ isEnglish ? 'Portfolio & Case Studies' : 'Portofolio & Studi Kasus' }}
+            </p>
         </div>
 
         <!-- ==================================================== -->
@@ -141,22 +161,36 @@ const openDetail = (project) => {
             class="flex flex-col sm:flex-row gap-3 bg-vintage-bg p-3 rounded-xl border border-vintage-dark/5 shadow-sm">
             <!-- Filter Kategori -->
             <div class="flex-1 flex flex-col gap-1">
-                <label class="text-[11px] font-black uppercase text-gray-500 tracking-wider">Kategori Bisnis</label>
+                <label class="text-[11px] font-black uppercase text-gray-500 tracking-wider">
+                  {{ isEnglish ? 'Business Category' : 'Kategori Bisnis' }}
+                </label>
                 <select v-model="selectedCategory"
                     class="select select-sm select-bordered bg-vintage-bg-darker border-vintage-dark/10 focus:outline-vintage-teal text-xs font-semibold rounded-lg w-full">
-                    <option value="all">Semua Kategori</option>
-                    <option value="pendidikan">Pendidikan / Sekolah</option>
-                    <option value="umum">Umum</option>
-                    <option value="keuangan">Keuangan</option>
+                    <option value="all">
+                      {{ isEnglish ? 'All Categories' : 'Semua Kategori' }}
+                    </option>
+                    <option value="pendidikan">
+                      {{ isEnglish ? 'Education / School' : 'Pendidikan / Sekolah' }}
+                    </option>
+                    <option value="umum">
+                      {{ isEnglish ? 'General' : 'Umum' }}
+                    </option>
+                    <option value="keuangan">
+                      {{ isEnglish ? 'Finance' : 'Keuangan' }}
+                    </option>
                 </select>
             </div>
 
             <!-- Filter Teknologi -->
             <div class="flex-1 flex flex-col gap-1">
-                <label class="text-[11px] font-black uppercase text-gray-500 tracking-wider">Teknologi Kode</label>
+                <label class="text-[11px] font-black uppercase text-gray-500 tracking-wider">
+                  {{ isEnglish ? 'Tech Stack' : 'Teknologi Kode' }}
+                </label>
                 <select v-model="selectedTech"
                     class="select select-sm select-bordered bg-vintage-bg-darker border-vintage-dark/10 focus:outline-vintage-teal text-xs font-semibold rounded-lg w-full">
-                    <option value="all">Semua Teknologi</option>
+                    <option value="all">
+                      {{ isEnglish ? 'All Technologies' : 'Semua Teknologi' }}
+                    </option>
                     <option value="laravel">Laravel PHP</option>
                     <option value="vue">Vue.js 3</option>
                     <option value="sql">MySQL / SQL</option>
@@ -196,7 +230,7 @@ const openDetail = (project) => {
                         </div>
                         <!-- Potongan deskripsi pendek agar card tidak kosong -->
                         <p class="text-xs text-gray-500 line-clamp-2 leading-normal mt-1">
-                            {{ project.desc }}
+                            {{ isEnglish ? (project.descEn || project.desc) : project.desc }}
                         </p>
                     </div>
 
@@ -215,7 +249,13 @@ const openDetail = (project) => {
         <!-- State Jika Data Kosong -->
         <div v-else class="text-center py-12 bg-vintage-bg/50 rounded-xl border border-dashed border-vintage-dark/10">
             <Icon icon="mdi:folder-search-outline" class="w-12 h-12 mx-auto text-gray-400 mb-2" />
-            <p class="text-sm font-bold text-gray-500">Tidak ada project yang cocok dengan filter pilihan Anda.</p>
+            <p class="text-sm font-bold text-gray-500">
+              {{
+                isEnglish
+                  ? 'No projects match your current filter.'
+                  : 'Tidak ada project yang cocok dengan filter pilihan Anda.'
+              }}
+            </p>
         </div>
 
         <!-- ==================================================== -->
@@ -231,9 +271,11 @@ const openDetail = (project) => {
 
                 <!-- Baris Atas Modal: Judul Proyek -->
                 <div class="pr-8">
-                    <h3 class="font-black text-base md:text-xl text-vintage-teal leading-tight">{{ selectedProject.title
-                        }}</h3>
-                    <p class="text-xs text-gray-500 capitalize font-bold mt-1">Kategori: {{ selectedProject.category }}
+                    <h3 class="font-black text-base md:text-xl text-vintage-teal leading-tight">
+                      {{ selectedProject.title }}
+                    </h3>
+                    <p class="text-xs text-gray-500 capitalize font-bold mt-1">
+                      {{ isEnglish ? 'Category' : 'Kategori' }}: {{ selectedProject.category }}
                     </p>
                 </div>
 
@@ -289,17 +331,19 @@ const openDetail = (project) => {
                     <!-- KOLOM KANAN (MD: 5/12): Area Deskripsi & Tech Specs -->
                     <div class="md:col-span-5 flex flex-col gap-4 h-full overflow-y-auto pr-1">
                         <div class="flex flex-col gap-1.5">
-                            <h4 class="text-xs font-black uppercase text-gray-500 tracking-wider">Tentang Solusi Project
+                            <h4 class="text-xs font-black uppercase text-gray-500 tracking-wider">
+                              {{ isEnglish ? 'About the Solution' : 'Tentang Solusi Project' }}
                             </h4>
                             <p
                                 class="text-xs md:text-sm leading-relaxed text-gray-700 bg-vintage-bg p-3 rounded-xl border border-vintage-dark/5 shadow-inner">
-                                {{ selectedProject.desc }}
+                                {{ isEnglish ? (selectedProject.descEn || selectedProject.desc) : selectedProject.desc }}
                             </p>
                         </div>
 
                         <div class="flex flex-col gap-1.5 mt-auto">
-                            <h4 class="text-xs font-black uppercase text-gray-500 tracking-wider">Teknologi
-                                Diimplementasikan</h4>
+                            <h4 class="text-xs font-black uppercase text-gray-500 tracking-wider">
+                              {{ isEnglish ? 'Technologies Implemented' : 'Teknologi Diimplementasikan' }}
+                            </h4>
                             <div class="flex flex-wrap gap-1">
                                 <span v-for="t in selectedProject.tech" :key="t"
                                     class="px-2.5 py-1 bg-vintage-teal text-white rounded text-[11px] font-mono font-bold uppercase tracking-wider">

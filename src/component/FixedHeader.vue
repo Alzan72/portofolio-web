@@ -1,11 +1,43 @@
 <script setup>
+import { computed } from 'vue'
 import { Icon } from '@iconify/vue'
+import { useLangStore } from '@/stores/lang'
 
-defineProps({
-  activeMenu: String
+const props = defineProps({
+  activeMenu: String,
 })
 
 defineEmits(['change-menu'])
+
+const langStore = useLangStore()
+const isEnglish = computed(() => langStore.current === 'en')
+
+const menus = ['home', 'skills', 'portfolio']
+
+const setLang = (lang) => {
+  langStore.setLang(lang)
+}
+
+const menuLabel = (menu) => {
+  if (isEnglish.value) {
+    if (menu === 'home') return 'Home'
+    if (menu === 'skills') return 'Skills'
+    if (menu === 'portfolio') return 'Portfolio'
+  } else {
+    if (menu === 'home') return 'Beranda'
+    if (menu === 'skills') return 'Keahlian'
+    if (menu === 'portfolio') return 'Portofolio'
+  }
+  return menu
+}
+
+const mainTagline = computed(() =>
+  isEnglish.value ? 'IT Enthusiast' : 'Penggiat IT'
+)
+
+const primaryCtaLabel = computed(() =>
+  isEnglish.value ? "Let's Collaborate" : 'Yuk Kolaborasi!'
+)
 </script>
 
 <template>
@@ -19,7 +51,7 @@ defineEmits(['change-menu'])
           <div class="h-[60px] flex items-center justify-center">
             <div class="avatar online">
               <div class="w-12 h-12 rounded-full ring ring-vintage-teal ring-offset-base-100 ring-offset-2">
-                <img src="/img/profile/avatar.png" alt="Avatar" />
+                <img src="/img/profile/azzam-profile.jpg" alt="Avatar" />
               </div>
             </div>
           </div>
@@ -41,15 +73,41 @@ defineEmits(['change-menu'])
               class="flex items-center gap-1 mx-1 text-[11px] text-emerald-400 font-semibold active:scale-95 transition-transform">
               <Icon icon="line-md:tiktok" class="w-4 h-4" />
             </a>
-            <a href="mailto:abdulazzam66@gmail.com" target="_blank"
-              class="flex items-center gap-1 mx-1 text-[11px] text-emerald-400 font-semibold active:scale-95 transition-transform">
+            <a
+              href="mailto:abdulazzam66@gmail.com"
+              target="_blank"
+              class="flex items-center gap-1 mx-1 text-[11px] text-emerald-400 font-semibold active:scale-95 transition-transform"
+            >
               <Icon icon="mdi:email" class="w-4 h-4" />
             </a>
           </div>
-          <div class="flex items-center justify-center">
-            <a href="mailto:abdulazzam66@gmail.com" target="_blank"
-              class="btn btn-sm btn-secondary font-semibold text-white px-2 m-1 rounded-lg w-full text-center" title="Email">
-              Yuk Kolaborasi!
+          <div class="flex items-center justify-between px-1 mt-1">
+            <div class="flex items-center gap-1 text-[10px] font-semibold text-gray-300">
+              <button
+                type="button"
+                class="px-1.5 py-0.5 rounded-md"
+                :class="!isEnglish ? 'bg-vintage-teal text-white' : 'hover:text-white'"
+                @click="setLang('id')"
+              >
+                ID
+              </button>
+              <span>/</span>
+              <button
+                type="button"
+                class="px-1.5 py-0.5 rounded-md"
+                :class="isEnglish ? 'bg-vintage-teal text-white' : 'hover:text-white'"
+                @click="setLang('en')"
+              >
+                EN
+              </button>
+            </div>
+            <a
+              href="mailto:abdulazzam66@gmail.com"
+              target="_blank"
+              class="btn btn-sm btn-secondary font-semibold text-white px-2 m-1 rounded-lg text-center"
+              title="Email"
+            >
+              {{ primaryCtaLabel }}
             </a>
           </div>
         </div>
@@ -57,15 +115,21 @@ defineEmits(['change-menu'])
         <div class="col-span-6 flex flex-col justify-between pl-1">
           <div class="h-[60px] flex flex-col justify-center">
             <h1 class="text-lg font-black tracking-wider text-vintage-cream leading-tight">Azzam Adnan</h1>
-            <p class="text-[10px] text-gray-400 font-medium tracking-wide h-[10px]">IT Enthusiast</p>
+            <p class="text-[10px] text-gray-400 font-medium tracking-wide h-[10px]">
+              {{ mainTagline }}
+            </p>
           </div>
 
           <div class="h-[30px] flex items-center justify-start overflow-x-auto scrollbar-none">
             <div class="flex gap-1 bg-vintage-bg/10 p-0.5 rounded-md w-full">
-              <button v-for="menu in ['home', 'skills', 'portfolio']" :key="menu" @click="$emit('change-menu', menu)"
+              <button
+                v-for="menu in menus"
+                :key="menu"
+                @click="$emit('change-menu', menu)"
                 class="flex-1 py-1 text-[11px] capitalize rounded-sm font-medium transition-all text-center"
-                :class="activeMenu === menu ? 'bg-vintage-teal text-white shadow-sm' : 'text-gray-400'">
-                {{ menu }}
+                :class="activeMenu === menu ? 'bg-vintage-teal text-white shadow-sm' : 'text-gray-400'"
+              >
+                {{ menuLabel(menu) }}
               </button>
             </div>
           </div>
@@ -77,20 +141,26 @@ defineEmits(['change-menu'])
         <div class="flex items-center gap-4">
           <div class="avatar online">
             <div class="w-12 h-12 rounded-full ring ring-vintage-teal ring-offset-base-100 ring-offset-2">
-              <img src="/img/profile/avatar.png" alt="Avatar" />
+              <img src="/img/profile/azzam-profile.jpg" alt="Avatar" />
             </div>
           </div>
           <div>
             <h1 class="text-xl font-bold tracking-wide text-vintage-cream">Azzam Adnan</h1>
-            <p class="text-xs text-gray-400">IT Enthusiast</p>
+            <p class="text-xs text-gray-400">
+              {{ mainTagline }}
+            </p>
           </div>
         </div>
 
         <div class="tabs tabs-boxed bg-transparent p-0 flex gap-1">
-          <button v-for="menu in ['home', 'skills', 'portfolio']" :key="menu" @click="$emit('change-menu', menu)"
+          <button
+            v-for="menu in menus"
+            :key="menu"
+            @click="$emit('change-menu', menu)"
             class="tab text-sm capitalize transition-all duration-300 rounded-lg px-4"
-            :class="activeMenu === menu ? 'bg-vintage-teal text-white font-semibold' : 'text-gray-400 hover:text-white'">
-            {{ menu }}
+            :class="activeMenu === menu ? 'bg-vintage-teal text-white font-semibold' : 'text-gray-400 hover:text-white'"
+          >
+            {{ menuLabel(menu) }}
           </button>
         </div>
 
@@ -127,10 +197,35 @@ defineEmits(['change-menu'])
             </a>
           </div>
 
+          <!-- Baris Tengah: Toggle Bahasa -->
+          <div class="flex items-center gap-1 text-[11px] font-semibold text-gray-400 mt-1">
+            <button
+              type="button"
+              class="px-2 py-1 rounded-md"
+              :class="!isEnglish ? 'bg-vintage-teal text-white' : 'hover:text-white'"
+              @click="setLang('id')"
+            >
+              ID
+            </button>
+            <span>/</span>
+            <button
+              type="button"
+              class="px-2 py-1 rounded-md"
+              :class="isEnglish ? 'bg-vintage-teal text-white' : 'hover:text-white'"
+              @click="setLang('en')"
+            >
+              EN
+            </button>
+          </div>
+
           <!-- Baris Bawah: Tombol Utama -->
-          <a href="mailto:abdulazzam66@gmail.com" target="_blank"
-            class="btn btn-sm btn-secondary font-semibold text-white px-4 rounded-lg w-full text-center" title="Email">
-            Yuk Kolaborasi!
+          <a
+            href="mailto:abdulazzam66@gmail.com"
+            target="_blank"
+            class="btn btn-sm btn-secondary font-semibold text-white px-4 rounded-lg w-full text-center"
+            title="Email"
+          >
+            {{ primaryCtaLabel }}
           </a>
           <!-- <button 
     @click="$emit('change-menu', 'portfolio')" 

@@ -1,9 +1,13 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { Icon } from '@iconify/vue'
+import { useLangStore } from '@/stores/lang'
 
 // State untuk fitur Show More deskripsi
 const isExpanded = ref(false)
+
+const langStore = useLangStore()
+const isEnglish = computed(() => langStore.current === 'en')
 
 // Data Dummy Skills (Cocok untuk target Sekolah, UMKM, & Corporate)
 const skills = ref([
@@ -39,33 +43,87 @@ const brands = ref([
     <!-- ==================================================== -->
     <section class="flex flex-col gap-3">
       <h2 class="text-3xl font-black tracking-wide text-vintage-teal">
-        Hallo, Azzam here 👋
+        {{ isEnglish ? 'I\'m Azzam, Full-Stack Web Developer 👋' : 'I\'m Azzam, Full-Stack Web Developer 👋' }}
       </h2>
+      <p class="text-xs md:text-sm font-semibold uppercase tracking-wider text-gray-500">
+        {{ isEnglish ? 'Building practical web apps for education, boarding schools, and small businesses.' : 'Membangun aplikasi web praktis untuk sekolah, pesantren, dan pelaku usaha kecil.' }}
+      </p>
 
       <div class="text-sm md:text-base leading-relaxed text-gray-700 space-y-2">
-        <p>Profesional IT dengan fokus pada jaringan komputer dan pengembangan perangkat lunak. Berpengalaman mengubah
-          kebutuhan operasional menjadi solusi digital yang efisien, andal, dan mudah digunakan.</p>
-        <p>Telah merancang dan mengembangkan berbagai sistem terintegrasi lintas divisi, mulai dari aplikasi manajemen
-          internal yang meningkatkan produktivitas kerja hingga platform rekapitulasi laporan otomatis. Di bidang
-          pendidikan, saya juga membangun solusi seperti sistem absensi berbasis QR Code dan aplikasi penilaian siswa
-          yang terstruktur.</p>
-        <p v-if="!isExpanded">Selain mengembangkan sistem dari nol...</p>
+        <p>
+          {{
+            isEnglish
+              ? 'I help schools, boarding schools, and small businesses turn manual processes into reliable, easy-to-use web systems.'
+              : 'Saya membantu sekolah, pesantren, dan pelaku usaha kecil mengubah proses manual menjadi sistem informasi berbasis web yang rapi, mudah digunakan, dan bisa diandalkan sehari-hari.'
+          }}
+        </p>
+        <p>
+          {{
+            isEnglish
+              ? 'My focus is building applications such as student registration systems, QR-based attendance, mosque finance apps, and dashboards that support faster decision making.'
+              : 'Fokus saya adalah membangun aplikasi seperti sistem pendaftaran santri, absensi berbasis QR Code, keuangan masjid, hingga dashboard rekap data yang memudahkan pimpinan mengambil keputusan.'
+          }}
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-xs md:text-sm text-gray-700">
+          <li>
+            {{
+              isEnglish
+                ? 'Reduce time spent on manual report and attendance recap.'
+                : 'Mengurangi waktu rekap laporan administrasi dan kehadiran.'
+            }}
+          </li>
+          <li>
+            {{
+              isEnglish
+                ? 'Minimize input errors with structured workflows.'
+                : 'Meminimalkan kesalahan input data dengan alur kerja yang terstruktur.'
+            }}
+          </li>
+          <li>
+            {{
+              isEnglish
+                ? 'Speed up access to key information for leaders and operational teams.'
+                : 'Mempercepat akses informasi penting bagi pimpinan dan tim operasional.'
+            }}
+          </li>
+        </ul>
+        <p v-if="!isExpanded" class="pt-1">
+          {{
+            isEnglish
+              ? 'Curious about my experience and how I work?'
+              : 'Ingin tahu lebih dalam tentang pengalaman dan cara saya bekerja?'
+          }}
+        </p>
         <!-- Baris tambahan yang disembunyikan / ditampilkan secara dinamis -->
         <div v-if="isExpanded" class="space-y-2 pt-2 border-t border-vintage-dark/5">
-          <p>Selain mengembangkan sistem dari nol, saya juga berpengalaman melakukan optimalisasi dan refaktorisasi
-            aplikasi legacy untuk meningkatkan performa, efisiensi, dan pengalaman pengguna.</p>
-          <p>Dalam bidang jaringan, saya memiliki pengalaman melakukan instalasi dan konfigurasi infrastruktur jaringan
-            sekolah menggunakan perangkat MikroTik, termasuk pengelolaan akses internet berdasarkan tingkat pengguna
-            serta penerapan kebijakan pemblokiran situs sesuai kebutuhan.</p>
-          <p>Saya selalu terbuka terhadap tantangan baru dan siap membantu proses digitalisasi melalui implementasi
-            teknologi yang tepat, efektif, dan berkelanjutan.</p>
+          <p>
+            {{
+              isEnglish
+                ? 'Beyond building systems from scratch, I am experienced in optimizing and refactoring legacy applications to improve performance, efficiency, and user experience.'
+                : 'Selain mengembangkan sistem dari nol, saya juga berpengalaman melakukan optimalisasi dan refaktorisasi aplikasi legacy untuk meningkatkan performa, efisiensi, dan pengalaman pengguna.'
+            }}
+          </p>
+          <p>
+            {{
+              isEnglish
+                ? 'On the networking side, I have experience installing and configuring school network infrastructure using MikroTik, including internet access segmentation and content filtering policies.'
+                : 'Dalam bidang jaringan, saya memiliki pengalaman melakukan instalasi dan konfigurasi infrastruktur jaringan sekolah menggunakan perangkat MikroTik, termasuk pengelolaan akses internet berdasarkan tingkat pengguna serta penerapan kebijakan pemblokiran situs sesuai kebutuhan.'
+            }}
+          </p>
+          <p>
+            {{
+              isEnglish
+                ? 'I am always open to new challenges and ready to support your digitalization process with the right, effective, and sustainable technology.'
+                : 'Saya selalu terbuka terhadap tantangan baru dan siap membantu proses digitalisasi melalui implementasi teknologi yang tepat, efektif, dan berkelanjutan.'
+            }}
+          </p>
         </div>
       </div>
 
       <!-- Tombol Show More / Show Less -->
       <button @click="isExpanded = !isExpanded"
         class="btn btn-link btn-xs self-start p-0 no-underline text-vintage-orange hover:text-vintage-orange/80 font-bold flex items-center gap-1">
-        <span>{{ isExpanded ? 'Show Less' : 'Show More' }}</span>
+        <span>{{ isExpanded ? (isEnglish ? 'Show Less' : 'Tutup detail') : (isEnglish ? 'Show More' : 'Lihat selengkapnya') }}</span>
         <Icon :icon="isExpanded ? 'mdi:chevron-up' : 'mdi:chevron-down'" class="w-4 h-4" />
       </button>
     </section>

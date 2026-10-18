@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { Icon } from '@iconify/vue'
+import { useLangStore } from '@/stores/lang'
 
 // Data Riwayat Pengalaman & Pendidikan (Timeline)
 const experienceTimeline = ref([
@@ -9,22 +10,28 @@ const experienceTimeline = ref([
     year: '2023 - Sekarang',
     title: 'Full-Stack Web Developer',
     place: 'Malang',
-    desc: 'Membantu digitalisasi sekolah IIBS dengan mengembangkan sistem informasi yang terintegrasi, modern, interaktif, cepat, dan responsif. '
+    desc: 'Membantu digitalisasi sekolah IIBS dengan mengembangkan sistem informasi yang terintegrasi, modern, interaktif, cepat, dan responsif.',
+    descEn:
+      'Supporting the digitalization of IIBS by developing integrated information systems that are modern, interactive, fast, and responsive.',
   },
   {
     type: 'edu',
     year: '2022 - 2023',
     title: 'Pemograman tingkat lanjut',
     place: 'Solo',
-    desc: 'Mendalami pemograman tingkat lanjut seperti OOP, MVC, dan design pattern, serta membangun aplikasi berbasis web yang modern, interaktif, cepat, dan responsif.'
+    desc: 'Mendalami pemograman tingkat lanjut seperti OOP, MVC, dan design pattern, serta membangun aplikasi berbasis web yang modern, interaktif, cepat, dan responsif.',
+    descEn:
+      'Deepened advanced programming such as OOP, MVC, and design patterns while building modern, interactive, fast, and responsive web applications.',
   },
   {
     type: 'edu',
     year: '2019 - 2022',
     title: 'Teknik Komputer & Jaringan / Rekayasa Perangkat Lunak',
     place: 'Pendidikan Formal',
-    desc: 'Mempelajari fondasi dasar jaringan, algoritma pemrograman, hingga mulai mendalami ekosistem modern PHP dan JavaScript.'
-  }
+    desc: 'Mempelajari fondasi dasar jaringan, algoritma pemrograman, hingga mulai mendalami ekosistem modern PHP dan JavaScript.',
+    descEn:
+      'Learned the fundamentals of networking and programming algorithms and began exploring the modern PHP and JavaScript ecosystem.',
+  },
 ])
 
 // Data Persentase Skill (Dikategorikan agar Solutif)
@@ -54,6 +61,9 @@ const skillCategories = ref([
     ]
   }
 ])
+
+const langStore = useLangStore()
+const isEnglish = computed(() => langStore.current === 'en')
 </script>
 
 <template>
@@ -64,8 +74,12 @@ const skillCategories = ref([
     <!-- ==================================================== -->
     <section class="flex flex-col gap-6">
       <div class="flex flex-col">
-        <h3 class="text-lg font-bold uppercase tracking-wider text-gray-500 text-[11px]">My Journey</h3>
-        <p class="text-xl font-black text-vintage-teal">Riwayat & Pengalaman</p>
+        <h3 class="text-lg font-bold uppercase tracking-wider text-gray-500 text-[11px]">
+          {{ isEnglish ? 'My Journey' : 'Perjalanan Karier' }}
+        </h3>
+        <p class="text-xl font-black text-vintage-teal">
+          {{ isEnglish ? 'Experience & Education' : 'Riwayat & Pengalaman' }}
+        </p>
       </div>
 
       <!-- DaisyUI Timeline Komponen -->
@@ -88,7 +102,9 @@ const skillCategories = ref([
             </time>
             <div class="text-base font-black text-vintage-dark mt-2 leading-tight">{{ item.title }}</div>
             <div class="text-xs font-bold text-vintage-orange mb-2">{{ item.place }}</div>
-            <p class="text-xs md:text-sm text-gray-600 leading-relaxed">{{ item.desc }}</p>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+              {{ isEnglish ? (item.descEn || item.desc) : item.desc }}
+            </p>
           </div>
           
           <hr v-if="index < experienceTimeline.length - 1" class="bg-vintage-dark/20" />
@@ -101,8 +117,12 @@ const skillCategories = ref([
     <!-- ==================================================== -->
     <section class="flex flex-col gap-6">
       <div class="flex flex-col">
-        <h3 class="text-lg font-bold uppercase tracking-wider text-gray-500 text-[11px]">Proficiency Level</h3>
-        <p class="text-xl font-black text-vintage-teal">Persentase Kemampuan</p>
+        <h3 class="text-lg font-bold uppercase tracking-wider text-gray-500 text-[11px]">
+          {{ isEnglish ? 'Proficiency Level' : 'Level Kemampuan' }}
+        </h3>
+        <p class="text-xl font-black text-vintage-teal">
+          {{ isEnglish ? 'Skill Percentage' : 'Persentase Kemampuan' }}
+        </p>
       </div>
 
       <!-- Grid Kategori Skill: 1 Kolom di HP, 3 Kolom di Desktop -->
